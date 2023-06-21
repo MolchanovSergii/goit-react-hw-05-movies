@@ -10,3 +10,11 @@ export async function fetchApi() {
   );
   return response.data;
 }
+
+export async function fetchApiMovie(movieId) {
+  const END_POINTS = `movie/${movieId}`;
+  const response = await axios.get(
+    `${END_POINTS}?language=en-US&api_key=${API_KEY}`
+  );
+  return response.data;
+}

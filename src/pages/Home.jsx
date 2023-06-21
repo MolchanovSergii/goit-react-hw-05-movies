@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { fetchApi } from 'services/fetchApi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-import { TrendingList } from 'components/TrendingList/TrendingList';
-import { Loader } from 'components/Loader/Loader';
+import TrendingList from 'components/TrendingList/TrendingList';
+import Loader from 'components/Loader/Loader';
 
-export const Home = () => {
+const Home = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,3 +31,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;

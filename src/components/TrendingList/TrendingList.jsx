@@ -1,13 +1,18 @@
 // import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
-export const TrendingList = ({ data }) => {
+const TrendingList = ({ data }) => {
   const { results } = data;
 
   return (
     <ul>
       {results.map(result => (
-        <li key={result.id}>{result.title}</li>
+        <li key={result.id}>
+          <Link to={`/movies/${result.id}`}> {result.title}</Link>
+        </li>
       ))}
     </ul>
   );
 };
+
+export default TrendingList;
