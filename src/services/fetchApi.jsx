@@ -18,3 +18,19 @@ export async function fetchApiMovie(movieId) {
   );
   return response.data;
 }
+
+export async function fetchApiMovieActors(movieId) {
+  const END_POINTS = `movie/${movieId}/credits`;
+  const response = await axios.get(
+    `${END_POINTS}?language=en-US&api_key=${API_KEY}`
+  );
+  return response.data;
+}
+
+export async function fetchApiMovieReviews(movieId) {
+  const END_POINTS = `movie/${movieId}/reviews`;
+  const response = await axios.get(
+    `${END_POINTS}?language=en-US&api_key=${API_KEY}`
+  );
+  return response.data;
+}

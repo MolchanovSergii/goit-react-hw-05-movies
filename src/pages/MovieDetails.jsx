@@ -6,8 +6,6 @@ import { fetchApiMovie } from 'services/fetchApi';
 
 import Loader from 'components/Loader/Loader';
 import MovieCard from 'components/MovieCard/MovieCard';
-// import Cast from 'components/Cast/Cast';
-// import Reviews from 'components/Reviews/Reviews';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -32,7 +30,7 @@ const MovieDetails = () => {
   return (
     <>
       {isLoading ? <Loader /> : data && <MovieCard data={data} />}
-
+      <h3>Additional information</h3>
       <ul>
         <li>
           <Link to="cast">Cast</Link>
