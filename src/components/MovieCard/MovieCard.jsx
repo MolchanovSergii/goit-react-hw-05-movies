@@ -1,18 +1,27 @@
-import { MoviePoster, Card, Wrapper, GenresList } from './MovieCardStyled';
-import { BsArrowLeftSquare } from 'react-icons/bs';
+import {
+  MoviePoster,
+  Card,
+  Wrapper,
+  GenresList,
+  Arrow,
+  LinkBack,
+} from './MovieCardStyled';
+import { useLocation } from 'react-router-dom';
 
 const MovieCard = ({ data }) => {
   const { overview, genres, poster_path, title, release_date, vote_average } =
     data;
   const baseImagePath = 'https://image.tmdb.org/t/p/w500';
   const year = parseInt(release_date.split('-')[0]);
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/movies';
 
   return (
     <>
-      <button>
-        <BsArrowLeftSquare />
+      <LinkBack to={backLinkHref}>
+        <Arrow />
         Go Back
-      </button>
+      </LinkBack>
       <Card>
         <Wrapper>
           <MoviePoster
