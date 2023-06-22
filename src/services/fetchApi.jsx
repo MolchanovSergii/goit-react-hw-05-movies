@@ -34,3 +34,11 @@ export async function fetchApiMovieReviews(movieId) {
   );
   return response.data;
 }
+
+export async function fetchApiMovieSearch(query) {
+  const END_POINTS = `search/movie`;
+  const response = await axios.get(
+    `${END_POINTS}?query=${query}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`
+  );
+  return response.data;
+}

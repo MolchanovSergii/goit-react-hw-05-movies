@@ -1,4 +1,5 @@
 import { MoviePoster, Card, Wrapper, GenresList } from './MovieCardStyled';
+import { BsArrowLeftSquare } from 'react-icons/bs';
 
 const MovieCard = ({ data }) => {
   const { overview, genres, poster_path, title, release_date, vote_average } =
@@ -7,28 +8,34 @@ const MovieCard = ({ data }) => {
   const year = parseInt(release_date.split('-')[0]);
 
   return (
-    <Card>
-      <Wrapper>
-        <MoviePoster
-          src={`${baseImagePath}${poster_path}`}
-          alt="Movie Poster"
-        />
-      </Wrapper>
-      <Wrapper>
-        <h2>
-          {title} ({year})
-        </h2>
-        <p>User Rating: {vote_average}</p>
-        <h3>Overview</h3>
-        <p>{overview}</p>
-        <h3>Genres</h3>
-        <GenresList>
-          {genres.map(genre => (
-            <li key={genre.id}>{genre.name}</li>
-          ))}
-        </GenresList>
-      </Wrapper>
-    </Card>
+    <>
+      <button>
+        <BsArrowLeftSquare />
+        Go Back
+      </button>
+      <Card>
+        <Wrapper>
+          <MoviePoster
+            src={`${baseImagePath}${poster_path}`}
+            alt="Movie Poster"
+          />
+        </Wrapper>
+        <Wrapper>
+          <h2>
+            {title} ({year})
+          </h2>
+          <p>User Rating: {vote_average}</p>
+          <h3>Overview</h3>
+          <p>{overview}</p>
+          <h3>Genres</h3>
+          <GenresList>
+            {genres.map(genre => (
+              <li key={genre.id}>{genre.name}</li>
+            ))}
+          </GenresList>
+        </Wrapper>
+      </Card>
+    </>
   );
 };
 

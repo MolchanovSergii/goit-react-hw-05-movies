@@ -2,7 +2,6 @@ const ReviewsCard = ({ reviews }) => {
   if (!reviews.results.length) {
     return <p>We don't have any reviews for this film</p>;
   }
-  console.log(reviews);
 
   return (
     <>
