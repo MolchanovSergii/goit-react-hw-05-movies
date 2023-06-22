@@ -1,4 +1,7 @@
 import { useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import { BsCardImage } from 'react-icons/bs';
+
 import {
   MoviePoster,
   Card,
@@ -7,7 +10,6 @@ import {
   Arrow,
   LinkBack,
 } from './MovieCardStyled';
-import { useLocation } from 'react-router-dom';
 
 const MovieCard = ({ data }) => {
   const { overview, genres, poster_path, title, release_date, vote_average } =
@@ -26,10 +28,14 @@ const MovieCard = ({ data }) => {
       </LinkBack>
       <Card>
         <Wrapper>
-          <MoviePoster
-            src={`${baseImagePath}${poster_path}`}
-            alt="Movie Poster"
-          />
+          {poster_path ? (
+            <MoviePoster
+              src={`${baseImagePath}${poster_path}`}
+              alt="Movie Poster"
+            />
+          ) : (
+            <BsCardImage size={200} />
+          )}
         </Wrapper>
         <Wrapper>
           <h2>

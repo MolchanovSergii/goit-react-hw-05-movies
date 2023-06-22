@@ -1,5 +1,5 @@
 import { useParams, Link, Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { fetchApiMovie } from 'services/fetchApi';
@@ -42,7 +42,9 @@ const MovieDetails = () => {
           <Link to="reviews">Reviews</Link>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
