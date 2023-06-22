@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { fetchApiMovieSearch } from 'services/fetchApi';
@@ -11,7 +11,6 @@ const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
-  const location = useLocation();
 
   // делает проверку, если там null, то ставит ''
   const query = searchParams.get('query') ?? '';
@@ -42,8 +41,6 @@ const Movies = () => {
     };
     fetchData();
   }, [query]);
-
-  console.log(location);
 
   return (
     <main>

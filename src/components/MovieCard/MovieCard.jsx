@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import {
   MoviePoster,
   Card,
@@ -14,11 +15,12 @@ const MovieCard = ({ data }) => {
   const baseImagePath = 'https://image.tmdb.org/t/p/w500';
   const year = parseInt(release_date.split('-')[0]);
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/movies';
+
+  const backLinkHref = useRef(location.state?.from ?? '/movies');
 
   return (
     <>
-      <LinkBack to={backLinkHref}>
+      <LinkBack to={backLinkHref.current}>
         <Arrow />
         Go Back
       </LinkBack>
