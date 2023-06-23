@@ -21,11 +21,11 @@ const Movies = () => {
     setSearchParams({ query: form.elements.query.value });
   };
 
-  const handlerChangeQuery = event => {
-    const value = event.target.value;
-    const currentValue = value !== '' ? value : [];
-    setSearchParams({ query: currentValue });
-  };
+  // const handlerChangeQuery = event => {
+  //   const value = event.target.value;
+  //   const currentValue = value !== '' ? value : [];
+  //   setSearchParams({ query: currentValue });
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,8 +51,8 @@ const Movies = () => {
           type="text"
           autoComplete="off"
           autoFocus
-          value={query}
-          onChange={handlerChangeQuery}
+          // value={query}
+          // onChange={handlerChangeQuery}
         />
         <button type="submit">Search</button>
       </form>
